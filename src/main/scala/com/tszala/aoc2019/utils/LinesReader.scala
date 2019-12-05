@@ -1,5 +1,6 @@
 package com.tszala.aoc2019.utils
 
+import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 import scala.util.{Failure, Success, Try}
 
@@ -22,6 +23,11 @@ object LinesReader {
         List.empty
     }
     inputs
+  }
+
+  def readFirstLineAsCommaSeparatedInts(filename: String): ArrayBuffer[Int] = {
+    val instructionLines: List[String] = LinesReader.readLinesOrExit(filename)
+    ArrayBuffer.from(instructionLines.head.split(",").map(_.toInt))
   }
 
 }
